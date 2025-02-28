@@ -61,7 +61,7 @@ def main():
         if file_path.exists() and file_path.is_file():
             overview = load_overview_file(file_path)
         else:
-            raise ValueError(f"The path to the overview file given is incorect {args.file}")
+            raise ValueError(f"The path to the overview file given is incorrect : {args.file}")
     else:
         overview = args.overview
 
