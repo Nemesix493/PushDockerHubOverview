@@ -10,19 +10,37 @@ def load_overview_file(overview_file_path: Path) -> str:
 
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-u", "--username", required=True, help="Docker Hub username")
-    parser.add_argument("-r", "--repository", required=True, help="Docker Hub repository name")
+    parser = argparse.ArgumentParser(
+        description="This script allows you to push a Docker Hub repository overview via the API.\n"
+        "Password or token is required but not both.\n"
+        "Overview or file is required but not both."
+    )
+    parser.add_argument("-u", "--username", required=True, help="Docker Hub username (required)")
+    parser.add_argument("-r", "--repository", required=True, help="Docker Hub repository name (required)")
 
     # Secret args
     authentication_group = parser.add_mutually_exclusive_group(required=True)
-    authentication_group.add_argument("-p", "--password", help="Docker Hub password")
-    authentication_group.add_argument("-t", "--token", help="Docker Hub personnnal access token")
+    authentication_group.add_argument("-p", "--password", help="Docker Hub password (required or token)")
+    authentication_group.add_argument(
+        "-t",
+        "--token",
+        help="Docker Hub Personnnal Access Token PAT (required or password)"
+    )
 
     # Overview args
     overview_group = parser.add_mutually_exclusive_group(required=True)
-    overview_group.add_argument("-f", "--file", help="Path to overview file")
-    overview_group.add_argument("-o", "--overview", help="Overview text")
+    overview_group.add_argument(
+        "-f",
+        "--overview-file",
+        dest="file",
+        help="Path to overview file (required or overview-text)"
+    )
+    overview_group.add_argument(
+        "-o",
+        "--overview-text",
+        dest="overview",
+        help="Overview text(required or overview-file)"
+    )
     args = parser.parse_args()
 
     # Use password or token depending of which given
