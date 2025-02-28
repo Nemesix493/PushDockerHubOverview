@@ -1,5 +1,9 @@
 # Push Docker Hub Overview
 
+## Version
+
+**v1.0** 🚀
+
 ## Description
 I created this script to automate the process of pushing an overview (similar to README.md) to a Docker Hub repository in an easy way. The main goal is to use it in a CI/CD pipeline.
 
@@ -28,4 +32,4 @@ You provide the script with your username, password or PAT (Personal Access Toke
 1. Load and check arguments.
 2. Instantiate the [API object](docker_hub_api.py).
 3. Get the JWT from API authentication.
-4. Use the JWT to update the overview via the PATCH method. 
+4. Use the JWT to update the overview via the PATCH method.
