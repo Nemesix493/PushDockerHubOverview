@@ -2,7 +2,7 @@
 
 ## Version
 
-**v1.0.1** 🚀
+**v1.0.2** 🚀
 
 ## Description
 I created this script to automate the process of pushing an overview (similar to README.md) to a Docker Hub repository in an easy way. The main goal is to use it in a CI/CD pipeline.
