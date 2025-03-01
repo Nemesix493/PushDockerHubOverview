@@ -1,5 +1,7 @@
 import argparse
 from pathlib import Path
+from os import getcwd
+from os.path import join
 
 from docker_hub_api import DockerHubAPI
 
@@ -57,7 +59,7 @@ def main():
 
     # Use overview file or overview text depending of which given
     if args.file:
-        file_path = Path(args.file).resolve()
+        file_path = Path(join(getcwd(), args.file)).resolve()
         if file_path.exists() and file_path.is_file():
             overview = load_overview_file(file_path)
         else:
